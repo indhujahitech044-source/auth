@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}Auth App{% endblock %}</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { font-family: system-ui, sans-serif; background: #f3f4f6; margin: 0;
+           display: flex; justify-content: center; align-items: center; min-height: 100vh; }
+    .card { background: #fff; padding: 2rem; border-radius: 12px; width: 100%; max-width: 400px;
+            box-shadow: 0 4px 20px rgba(0,0,0,.08); }
+    h2 { margin-top: 0; }
+    p { margin: .8rem 0; }
+    input { width: 100%; padding: .6rem; border: 1px solid #ccc; border-radius: 6px; font-size: 1rem; }
+    button { width: 100%; padding: .7rem; background: #2563eb; color: #fff; border: 0;
+             border-radius: 6px; font-size: 1rem; cursor: pointer; margin-top: .5rem; }
+    button:hover { background: #1d4ed8; }
+    .errorlist { color: #b91c1c; list-style: none; padding: 0; margin: .3rem 0; font-size: .9rem; }
+    .helptext, small { color: #6b7280; font-size: .8rem; }
+    .messages { list-style: none; padding: 0; }
+    .messages li { background: #dcfce7; color: #166534; padding: .6rem; border-radius: 6px; }
+    a { color: #2563eb; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    {% if messages %}
+      <ul class="messages">{% for m in messages %}<li>{{ m }}</li>{% endfor %}</ul>
+    {% endif %}
+    {% block content %}{% endblock %}
+  </div>
+</body>
+</html>
